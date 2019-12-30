@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetDetialByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="serie" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDetialByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDetialByIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDetialByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDetialByID" />
+  </wsdl:message>
+  <wsdl:message name="GetDetialByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDetialByIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServicioFormatoSoap">
+    <wsdl:operation name="GetDetialByID">
+      <wsdl:input message="tns:GetDetialByIDSoapIn" />
+      <wsdl:output message="tns:GetDetialByIDSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServicioFormatoSoap" type="tns:ServicioFormatoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDetialByID">
+      <soap:operation soapAction="http://tempuri.org/GetDetialByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServicioFormatoSoap12" type="tns:ServicioFormatoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDetialByID">
+      <soap12:operation soapAction="http://tempuri.org/GetDetialByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioFormato">
+    <wsdl:port name="ServicioFormatoSoap" binding="tns:ServicioFormatoSoap">
+      <soap:address location="http://localhost:55154/ServicioFormato.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServicioFormatoSoap12" binding="tns:ServicioFormatoSoap12">
+      <soap12:address location="http://localhost:55154/ServicioFormato.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

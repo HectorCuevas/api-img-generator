@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="api_img_generator.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="api_img_generator_SrvWs_ServicioFormato" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:55154/ServicioFormato.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
